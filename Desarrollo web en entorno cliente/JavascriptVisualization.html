@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavascriptVisualization</title>
+</head>
+<body>
+    <h1>First Web Page</h1>
+    <p id="demo"></p>
+    <script>
+        window.alert(50 + 50)
+    </script>
+    <script>
+        console.log("Console test text")
+    </script>
+    <script>
+        document.getElementById("demo").innerHTML = 5 + 6
+        /*<!-- No se debe llamar a document.write() después de que el documento ha terminado de cargarse porque sobrescribirá
+        todo el contenido existente de la página, eliminando lo que ya se había renderizado. Es preferible usar métodos modernos
+        como innerHTML o appendChild() para manipular el DOM sin este riesgo. -->*/
+        //document.write(10 + 10)
+    </script>
+    <!-- document.write() solo debe utilizarse para pruebas está obsoleto.-->
+    <button onclick="document.write(5 + 6)"> Test</button>
+
+</body>
+</html>
