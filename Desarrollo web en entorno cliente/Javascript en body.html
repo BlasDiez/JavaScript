@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>A web page</h1>
+  <p id="demo">A paragraph</p>
+  <button type="button" onclick="myFunction()">Try it</button>
+  <!-- Colocar scripts al final del elemento <body> mejora la velocidad de visualización, ya que su ejecución ralentiza la carga de la página.-->
+  <script>
+    function myFunction(){
+      document.getElementById("demo").innerHTML = "Paragraph changed";
+    }
+  </script>
+
+</body>
+</html>
