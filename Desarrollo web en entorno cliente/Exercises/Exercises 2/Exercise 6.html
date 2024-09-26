@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<!--Use a conditional (ternary) operator for this exercise:-->
+<!--If the variable firstName is equal to "John", the value of the variable result should be "Hello John!",-->
+<!--otherwise the value of result should be "You're not John!".-->
+First Name: <input type="text" id="fname" value="John">
+<button onclick="checkName()">Check Name</button>
+<p id="demo"></p>
+
+<script>
+  function checkName() {
+    var firstName = document.getElementById("fname").value;
+    document.getElementById("demo").innerHTML = firstName === "John" ? "Hello John!" : "You're not John!";
+  }
+</script>
+
+</body>
+</html>
