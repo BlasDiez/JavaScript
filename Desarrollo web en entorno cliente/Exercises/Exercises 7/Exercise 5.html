@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <!--Inside the for loop:
+        Set the counter variable (i) to 0.
+        Run the loop as long as i is less than the length of the food array.
+        Increment i by 1.-->
+    <p id="demo"></p>
+    <script>
+        let text = ""
+        let food = ["Pizza", "Beans", "Tacos", "Fish", "Chicken"]
+        let i
+
+        for (i = 0; i < food.length; i++) {
+            text += "I love " + food[i] + "<br>"
+        }
+
+        document.getElementById("demo").innerHTML = text
+    </script>
+
+</body>
+</html>
