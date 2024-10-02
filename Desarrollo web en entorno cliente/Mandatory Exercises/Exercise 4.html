@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*
+        Repite el ejercicio anterior utilizando el bucle do...while(). Solicita al usuario que introduzca un
+        número para indicar la cantidad de líneas que quiere imprimir.
+     */
+
+    let userChar = "*"
+    let cadena = ""
+    let repetir = prompt("Introduce un número para indicar la cantidad de líneas que quieres imprimir")
+    let inicio = 0;
+
+    do {
+
+        cadena += userChar
+        console.log(cadena)
+        inicio++;
+
+    } while(inicio < repetir)
+
+</script>
+
+
+</body>
+</html>

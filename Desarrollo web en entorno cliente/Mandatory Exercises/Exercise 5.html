@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*
+        En un restaurante los clientes pueden pedir menú de carne, pescado o verdura, utilizando el
+        comando prompt().
+        Vamos a implementar una aplicación que recomiende al cliente la bebida más adecuada
+        dependiendo del tipo de menú que haya pedido el cliente.
+        Si pide carne se le recomendará como bebida “Vino tinto”, si pide pescado se le ofrecerá “Vino
+        blanco” y si pide verdura se le ofrecerá “Agua”.
+        Si no elije el menú de la lista aparecerá la frase “Escriba carne, pescado o verdura.”
+        Puedes mostrar la salida por el método que prefieras.
+     */
+
+    let menu = prompt("Elige un menú: carne, pescado o verdura")
+
+    switch (menu) {
+
+        case "carne":
+            console.log("Te recomiendo Vino tinto para la carne")
+            break
+
+        case "pescado":
+            console.log("Te recomiendo Vino blanco para el pescado")
+            break
+
+        case "verdura":
+            console.log("Te recomiendo Agua para la verdura")
+            break
+
+        default:
+            console.log("Escriba carne, pescado o verdura")
+            menu = prompt("Elige un menú: carne, pescado o verdura")
+    }
+
+</script>
+
+</body>
+</html>

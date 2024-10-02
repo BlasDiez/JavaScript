@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        //a) Declara una variable llamada `nombre` y asígnale tu nombre como un string.
+        let nombre = "Blas" // Se crea una variable llamada 'nombre' y se le asigna el valor "Blas".
+
+        //b) Declara una variable llamada `edad` y asígnale tu edad como un número.
+        let edad = 35 // Se crea una variable llamada 'edad' y se le asigna el valor 35.
+
+        //c) Declara una variable llamada `esEstudiante` y asígnale un valor booleano que represente si eres estudiante (true) o no (false).
+        let esEstudiante = true // Se crea una variable llamada 'esEstudiante' y se le asigna el valor booleano true.
+
+        //d) Declara una constante llamada `pi` y asígnale el valor de Pi (3.14159).
+        const pi = 3.14159 // Se declara una constante llamada 'pi' y se le asigna el valor de Pi.
+
+        /*  e) Declara una variable llamada `colores` y asígnale un array con al menos tres colores
+            diferentes como strings (“rojo”, “verde” y “azul”). Declara una constante llamada
+            “colores2” y asígnale un array con al menos tres colores diferentes como strings (“rojo”,
+            “verde” y “azul”). */
+        let colores = ["rojo", "verde", "azul"] // Se crea un array llamado 'colores' con tres colores.
+        const colores2 = ["rojo", "verde", "azul"]  // Se crea una constante llamada 'colores2' con los mismos tres colores.
+
+        /*  f) Declara una constante llamada `informacionPersonal` y asígnale un objeto con tres
+            propiedades: `nombre`, `edad` y `esEstudiante`. Utiliza las variables que declaraste
+            anteriormente para asignar los valores correspondientes a estas propiedades.*/
+        const informacionPersonal = { // Se crea un objeto llamado 'informacionPersonal'
+            nombre, // Propiedad 'nombre' con el valor de la variable 'nombre'.
+            edad, // Propiedad 'edad' con el valor de la variable 'edad'.
+            esEstudiante // Propiedad 'esEstudiante' con el valor de la variable 'esEstudiante'.
+        }
+
+        /* g) Imprime en la consola la información personal utilizando el objeto `informacionPersonal`.
+            Debería verse algo así:
+            ```
+            Nombre: [Tu nombre]
+            Edad: [Tu edad]
+            Es estudiante: [true/false]
+            ```*/
+
+        console.log("Nombre: " + "[" + informacionPersonal.nombre + "]") // Muestra el nombre en la consola.
+        console.log("Edad: " + "[" + informacionPersonal.edad + "]") // Muestra la edad en la consola.
+        console.log("Es estudiante: " + "[" + informacionPersonal.esEstudiante + "]") // Muestra si es estudiante en la consola.
+
+        //h) Cambia el valor de la variable `edad` para representar tu edad actual más 5 años.
+        edad += 5 // Se incrementa la edad en 5 años.
+
+        /*i) Cambia el color “rojo” del array “colores” por el color “naranja”. Cambia el color “rojo” del
+            array “colores2” por el color “naranja”.*/
+        colores[0] = "naranja" // Se reemplaza el primer color del array 'colores' por 'naranja'.
+        colores2[0] = "naranja" // Se reemplaza el primer color del array 'colores2' por 'naranja'.
+
+        /*j) Imprime en la consola el array `colores` para asegurarte de que el nuevo color haya sido
+            cambiado. Imprime en la consola el array `colores2` para asegurarte de que el nuevo color
+            haya sido cambiado.*/
+        console.log(colores)  // Muestra el array 'colores' en la consola.
+        console.log(colores2) // Muestra el array 'colores2' en la consola.
+
+        //k) Intenta cambiar el valor de la constante `pi` a otro número. ¿Qué sucede? ¿Por qué?
+        //Ocurre que al ser una variable "const" su valor no puede ser cambiado.
+        //pi = 4
+
+        /* l) Declara una nueva variable llamada `numeroMagico` y no le asignes ningún valor. Luego,
+            asigna un número a esta variable en una línea diferente. ¿Es esto posible? ¿Por qué?*/
+        let numeroMagico // Se declara una variable llamada 'numeroMagico' sin valor asignado.
+        numeroMagico = 5 // Se asigna el valor 5 a la variable 'numeroMagico'.
+
+        //Es posible porque la variable numeroMagico se inicializa como "undefined" hasta que se le asigne un nuevo valor.
+
+        /* m) Declara una nueva constante llamada `numeroMagico2` y no le asignes ningún valor. Luego,
+          asigna un número a esta constante en una línea diferente. ¿Es esto posible? ¿Por qué?*/
+
+        //const numeroMagico2
+        //numeroMagico2 = 3;
+
+        //No es posible
+
+        /*  Porque las constantes en JavaScript deben ser declaradas e inicializadas en la misma línea,
+            no se pueden volver a asignar después de su inicialización, si intentas declarar una constante
+            sin un valor inicial, recibirás un error de sintaxis.*/
+
+        /* n) Asigna al array “colores” el nuevo array “[‘violeta’, ‘púrpura’, ‘añil’]”. ¿Es esto posible?
+            ¿Por qué?*/
+
+        colores = ["violeta", "purpura", "añil"] //Asigna al array “colores” el nuevo array “[‘violeta’, ‘púrpura’, ‘añil’]”.
+
+        //Si es posible porque está declarado con let y entonces se le puede reasignar cualquier valor en cualquier momento.
+
+        /*o) Asigna al array “colores2” el nuevo array “[‘violeta’, ‘púrpura’, ‘añil’]”. ¿Es esto posible?
+            ¿Por qué?*/
+
+        //colores2 = ["violeta", "purpura", "añil"]
+
+        /*No es posible porque no se puede asignar un nuevo array que se declaró con const.
+        Pero sí que se podrá modificar su contenido original. Esto es debido a que const solo puede apuntar a una
+        referencia de un objeto y no a otro.
+         */
+
+    </script>
+
+
+</body>
+</html>
