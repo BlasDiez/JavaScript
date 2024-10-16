@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="puertas"></p>
+    <script>
+        function Avion(numVuelo, motores, flaps, puertaPilotos = "cerrada") {
+
+            if (isNaN(numVuelo)) {
+                throw new Error("El número de vuelo debe ser un string válido.")
+            }
+
+            if (motores !== "encendidos" && motores !== "apagados") {
+                throw new Error("Los motores deben estar en 'encendidos' o 'apagados'.")
+            }
+
+            if (flaps !== "extendidos" && flaps !== "recogidos") {
+                throw new Error("Los flaps deben estar en 'extendidos' o 'recogidos'.")
+            }
+
+            if(puertaPilotos !== "abierta" && puertaPilotos !== "cerrada"){
+                throw new Error("La puerta de Pilotos debe estar en 'abierta' o 'cerrada'.")
+            }
+
+            this.numVuelo = numVuelo;
+            this.motores = motores;
+            this.flaps = flaps;
+            this.puertaPilotos = puertaPilotos;
+
+            //No uso esta función porque en el ejercicio se pide de diferente forma, pero la dejo para uso propio.
+            this.estadoDelAvion = function () {
+                return "Estado de motores: " + this.motores +
+                "<br> Número de vuelo: " + this.numVuelo +
+                "<br> Estado de flaps: " + this.flaps +
+                "<br> Puerta de Pilotos: " + this.puertaPilotos;
+            }
+
+            this.despegar = function() {
+                this.motores = "encendidos";
+                this.flaps = "extendidos";
+            }
+
+            this.aterrizar = function() {
+                this.motores = "apagados";
+                this.flaps = "recogidos";
+            }
+
+            this.abrirPuerta = function () {
+                this.puertaPilotos = "abierta";
+            }
+
+            this.cerrarPuerta = function () {
+                this.puertaPilotos = "cerrada";
+            }
+
+        }
+
+        try {
+
+            let flota = new Array(400);
+            let numeroAvion = 1;
+
+            for (let i = 0; i < 400; i++) {
+
+                flota[i] = new Avion(numeroAvion, "encendidos", "extendidos");
+                numeroAvion++;
+            }
+
+            let avionAControlar = prompt("Introduce el número de vuelo que quieres controlar");
+
+            if (isNaN(avionAControlar) || !Number.isInteger(parseFloat(avionAControlar)) || avionAControlar < 1 || avionAControlar > 400) {
+                document.getElementById("puertas").innerHTML = "Error: introduce un número entre 1 y 400.";
+
+            } else {
+                let avionAConsultarInt = parseInt(avionAControlar) - 1;
+                let avion = getObjectAvion(avionAConsultarInt, flota);
+
+                let opciones = "";
+
+                if(avion.motores === "apagados") {
+                    opciones += "a. Despegar\n";
+                }
+                else {
+                    opciones += "a. Aterrizar\n";
+                }
+
+                if (avion.puertaPilotos === "cerrada") {
+                    opciones += "b. Abrir puerta pilotos\n";
+                } else {
+                    opciones += "b. Cerrar puerta pilotos\n";
+                }
+
+                let opcionElegida = prompt("Opciones disponibles:\n" + opciones);
+
+                if (opcionElegida === "a" && avion.motores === "apagados") {
+                    avion.despegar();
+                }else if (opcionElegida === "a" && avion.motores === "encendidos") {
+                    avion.aterrizar();
+                }
+                if (opcionElegida === 'b' && avion.puertaPilotos === "cerrada") {
+                    avion.abrirPuerta();
+                }else if(opcionElegida === 'b' && avion.puertaPilotos === "abierta") {
+                    avion.cerrarPuerta();
+                }
+
+                muestraFlota(flota);
+            }
+
+        } catch (error) {
+            document.getElementById("puertas").innerHTML = "Ocurrió un error inesperado: " + error.message;
+        }
+
+        function getObjectAvion(avionAConsultarInt, flota) {
+            return flota[avionAConsultarInt];
+        }
+
+        function muestraFlota(flota) {
+            for (let i = 0; i < flota.length; i++) {
+                document.getElementById("puertas").innerHTML +=
+                    "Número de vuelo: " +
+                    flota[i].numVuelo +
+                    " - Estado de la puerta: " +
+                    flota[i].puertaPilotos +
+                    " - Estado de los motores: "
+                    + flota[i].motores + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>

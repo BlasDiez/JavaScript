@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="puertas"></p>
+    <script>
+        function Avion(numVuelo, motores, flaps) {
+
+            if (isNaN(numVuelo)) {
+                throw new Error("El número de vuelo debe ser un string válido.")
+            }
+
+            if (motores !== "encendidos" && motores !== "apagados") {
+                throw new Error("Los motores deben estar en 'encendidos' o 'apagados'.")
+            }
+
+            if (flaps !== "extendidos" && flaps !== "recogidos") {
+                throw new Error("Los flaps deben estar en 'extendidos' o 'recogidos'.")
+            }
+
+            this.numVuelo = numVuelo
+            this.motores = motores
+            this.flaps = flaps
+
+            this.estadoAvion = function(){
+                document.getElementById("puertas").innerHTML =
+                    "Estado de motores: " + this.motores +
+                    "<br> Número de vuelo: " + this.numVuelo +
+                    "<br> Estado de flaps: " + this.flaps
+            }
+
+            this.despegar = function() {
+                this.motores = "encendidos"
+                this.flaps = "extendidos"
+                this.estadoAvion()
+            }
+
+            this.aterrizar = function() {
+                this.motores = "apagados"
+                this.flaps = "recogidos"
+                this.estadoAvion()
+            }
+        }
+
+        try {
+
+           let numeroAvion = 1;
+           let flota = new Array(400)
+
+           for(let i = 0; i < 400; i++) {
+
+               flota[i] = new Avion([numeroAvion], "encendidos", "extendidos")
+               ++numeroAvion;
+           }
+
+            flota[0].estadoAvion()
+
+
+
+        } catch (error) {
+            console.error(error.message)
+        }
+
+    </script>
+
+</body>
+</html>
