@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>JavaScript Object Constructors</h2>
+<p id="demo"></p>
+
+
+<script>
+  function Persona(firstName, lastName, age, eyeColor, nationality) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
+
+    this.nationality = nationality;
+    this.fullName = function() {
+      return this.firstName + " " + this.lastName;
+    }
+
+  }
+  let father = new Persona("Juan", "Pérez", 45, "brown", "Spanish");
+  let mother = new Persona("Meri", "Johnson",  40, "green", "British");
+  let children = new Persona("Pedro", "Pérez", 20, "blue", "Spanish");
+
+  document.getElementById("demo").innerHTML = "The child's name is " + children.fullName()
+</script>
+
+
+</body>
+</html>
