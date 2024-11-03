@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <div id="contenido">
+        <p>Un párrafo.</p>
+        <p>Otro párrafo.</p>
+        <span>Test Span</span>
+        <p>Un tercer párrafo.</p>
+    </div>
+
+    <script>
+        function eliminarNodosNoParrafos() {
+
+            const divContenido = document.getElementById("contenido");
+
+            console.log("Número de hijos antes de limpiar:", divContenido.childElementCount);
+
+            let hijoActual = divContenido.firstChild;
+            while (hijoActual) {
+                const siguienteHijo = hijoActual.nextSibling;
+                if (hijoActual.nodeType === 1 && hijoActual.tagName !== "P") {
+                    divContenido.removeChild(hijoActual);
+                }
+                hijoActual = siguienteHijo;
+            }
+
+            console.log("Número de hijos después de limpiar:", divContenido.childElementCount);
+        }
+
+        eliminarNodosNoParrafos();
+    </script>
+</body>
+</html>

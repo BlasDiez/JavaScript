@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1</title>
+</head>
+<body>
+<script>
+
+  //Guardamos las coordenadas de la X.
+  let xRow;
+  let xColumn;
+
+  //Devuelve el número de filas de la tabla.
+  function getTableRowsCount() {
+    return document.querySelector("table").querySelectorAll("tr").length;
+  }
+
+  //Devuelve el número de columnas de la tabla.
+  function getTableColumnsCount() {
+      return document.querySelector("table").querySelectorAll("tr")[0].querySelectorAll("td").length;
+  }
+
+  //Busca la X en la tabla y guarda sus coordenadas.
+  function findX() {
+    const rowCount = getTableRowsCount();
+    const columnCount = getTableColumnsCount();
+    for (let row = 0; row < rowCount; row++) {
+      for (let column = 0; column < columnCount; column++) {
+        const cellContent = getCellContent(row, column);
+        if (cellContent === "X") {
+          xRow = row;
+          xColumn = column;
+          return;
+        }
+      }
+    }
+  }
+
+  //Devuelve el contenido de una celda.
+  function getCellContent(row, column) {
+    let table = document.querySelector("table");
+    let rows = table.querySelectorAll("tr");
+    let cells = rows[row].querySelectorAll("td");
+    return cells[column].innerText.trim();
+  }
+
+  //Establece el contenido de una celda.
+  function setCellContent(row, column, content) {
+    let table = document.querySelector("table");
+    let rows = table.querySelectorAll("tr");
+    let cells = rows[row].querySelectorAll("td");
+    cells[column].innerText = content;
+  }
+
+  //Mueve la X hacia arriba.
+  function moveXUp() {
+    findX();
+    if (xRow === 0) {
+      return;
+    }
+    const cellUpContent = getCellContent(xRow - 1, xColumn);
+    setCellContent(xRow, xColumn, cellUpContent);
+    setCellContent(xRow - 1, xColumn, "X");
+  }
+
+  //Mueve la X hacia abajo.
+  function moveXDown() {
+    findX();
+    if (xRow === getTableRowsCount() - 1) {
+      return;
+    }
+    const cellDownContent = getCellContent(xRow + 1, xColumn);
+    setCellContent(xRow, xColumn, cellDownContent);
+    setCellContent(xRow + 1, xColumn, "X");
+
+  }
+
+  //Mueve la X hacia la izquierda.
+  function moveXLeft() {
+    findX();
+    if (xColumn === 0) {
+      return;
+    }
+    const cellLeftContent = getCellContent(xRow, xColumn - 1);
+    setCellContent(xRow, xColumn, cellLeftContent);
+    setCellContent(xRow, xColumn - 1, "X");
+  }
+
+  //Mueve la X hacia la derecha.
+  function moveXRight() {
+    findX();
+    if (xColumn === getTableColumnsCount() - 1) {
+      return;
+    }
+    const cellRightContent = getCellContent(xRow, xColumn + 1);
+    setCellContent(xRow, xColumn, cellRightContent);
+    setCellContent(xRow, xColumn + 1, "X");
+  }
+
+
+</script>
+<h1 id="demo">Test</h1>
+<table border="1" >
+  <tr>
+    <td>4</td>
+    <td>1</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>X</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>5</td>
+    <td>8</td>
+  </tr>
+</table>
+<br>
+<button onclick="moveXUp()">Subir</button>
+<button onclick="moveXDown()">Bajar</button>
+<br>
+<button onclick="moveXLeft()">Izq.</button>
+<button onclick="moveXRight()">Dcha.</button>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Delegation Example</title>
+    <meta charset="UTF-8" />
+    <style>
+        table, th, td {
+          border: 1px solid;
+        }
+        </style>
+</head>
+
+<body>
+    <div id="buttons">
+        <table>
+            <tr>
+                <td>1</td> <td>
+                    <button class="buttonClass">Click me</button>
+                </td>
+            </tr> 
+            <tr>
+                <td>2</td> <td>
+                    <button class="buttonClass">Click me</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td> 
+                
+                <td>          
+                    <button class="buttonClass">Click me</button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td> <td>
+                    <button class="buttonClass">Click me</button>
+                </td>
+            </tr>
+           
+
+        </table>
+
+    </div>
+
+    <script type="text/javascript">
+        const buttonsDiv = document.getElementById("buttons");
+        buttonsDiv.addEventListener("click", onButtonsDivClick);
+
+        function onButtonsDivClick(e) {
+            if (e.target && e.target.nodeName === "BUTTON") {
+                const buttonNumber = e.target.parentElement.previousElementSibling.textContent;
+                alert("Button " + buttonNumber + " clicked");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
