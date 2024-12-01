@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelización de Cuenta Bancaria</title>
     <script>
-        // Clase Cuenta
+
         class Cuenta {
             constructor(titular) {
                 this.titular = titular;
@@ -31,9 +31,8 @@
             }
         }
 
-        // Clase Cuenta Plazo Fijo que hereda de Cuenta
         class CPlazoFijo extends Cuenta {
-            constructor(titular, año_creacion, plazofijo) {
+            constructor(titular, plazofijo, año_creacion = new Date().getFullYear()) {
                 super(titular);
                 this.año_creacion = año_creacion;
                 this.plazofijo = plazofijo;
@@ -45,31 +44,30 @@
                 if (años_transcurridos >= this.plazofijo) {
                     super.extraer(cantidad);
                 } else {
-                    console.log(`No puedes retirar dinero de la cuenta de ${this.titular} hasta que pasen ${this.plazofijo} años desde su creación.`);
+                    console.log(`No puedes retirar dinero de la cuenta de ${this.titular} hasta que pasen ${this.plazofijo} años desde su creación.\n${this.plazofijo - años_transcurridos} Años restantes.`);
                 }
             }
         }
 
-        // Función para crear y probar las cuentas
         function realizarOperaciones() {
-            // Creación de la cuenta corriente
+
             const ccorriente = new Cuenta("Pedro");
+
             ccorriente.ingresar(500);
             ccorriente.extraer(120);
             ccorriente.informar();
 
-            // Creación de cuentas de plazo fijo
-            const cfijo1 = new CPlazoFijo("Juan", 2007, 20);
-            const cfijo2 = new CPlazoFijo("Ana", 2007, 10);
+            const cfijo1 = new CPlazoFijo("Juan", 20, 2007);
+            const cfijo2 = new CPlazoFijo("Ana", 10, 2007);
 
-            // Intentos de extracción
             cfijo1.ingresar(1000);
-            cfijo1.extraer(500);  // Esto debería ser posible si han pasado más de 20 años
+            cfijo1.extraer(500);
             cfijo1.informar();
 
             cfijo2.ingresar(1000);
-            cfijo2.extraer(500);  // Esto debería ser posible si han pasado más de 10 años
+            cfijo2.extraer(500);
             cfijo2.informar();
+
         }
 
         window.onload = realizarOperaciones;

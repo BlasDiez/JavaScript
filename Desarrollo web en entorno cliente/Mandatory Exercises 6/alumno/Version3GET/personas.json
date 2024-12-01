@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Fernando",
+        "apellido": "urema",
+        "profesion": "Programador"
+    },
+    {
+        "nombre": "Ricardo",
+        "apellido": "Merbas",
+        "profesion": "Experto en Angular"
+    },
+    {
+        "nombre": "Pepe",
+        "apellido": "Alcazar",
+        "profesion": "Comerciante"
+    }
+]
